@@ -2,6 +2,7 @@ using System.Linq;
 using API.Data;
 using API.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
@@ -19,9 +20,13 @@ namespace API.Controllers
         //ALTERAR O MÉTODO PARA MOSTRAR TODOS OS DADOS DA VENDA E OS DADOS RELACIONADOS
         [HttpGet]
         [Route("list")]
-        public IActionResult List()
-        {
-            return Ok(_context.Vendas.ToList());
-        }
+        public IActionResult List() =>
+
+            Ok(_context.Vendas
+            .Include(vendas => vendas.Itens)
+            .ThenInclude(p => p.Produto.Categoria)
+            .ToList());
+
+
     }
 }

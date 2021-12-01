@@ -4,6 +4,9 @@ import { CarrinhoComponent } from "./components/views/home/carrinho/carrinho.com
 import { IndexComponent } from "./components/views/home/index/index.component";
 import { CadastrarProdutoComponent } from "./components/views/produto/cadastrar-produto/cadastrar-produto.component";
 import { ListarProdutoComponent } from "./components/views/produto/listar-produto/listar-produto.component";
+import { CreateVendaComponent } from "./components/views/venda/create-venda/create-venda.component";
+import { ListVendaComponent } from "./components/views/venda/list-venda/list-venda.component";
+
 
 const routes: Routes = [
     {
@@ -22,6 +25,14 @@ const routes: Routes = [
         path: "produto/cadastrar",
         component: CadastrarProdutoComponent,
     },
+    {
+        path: "venda/cadastrar",
+        component: CreateVendaComponent
+    },
+    {
+        path: "venda/listar",
+        component: ListVendaComponent
+    }
 ];
 
 @NgModule({
